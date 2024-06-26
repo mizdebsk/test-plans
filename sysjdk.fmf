@@ -1,0 +1,33 @@
+discover:
+  - name: ant
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/ant.git
+  - name: maven
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/maven.git
+  - name: byaccj
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/byaccj.git
+  - name: javacc
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/javacc.git
+  - name: jctools
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/jctools.git
+  - name: jflex
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/jflex.git
+  - name: maven-surefire
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/maven-surefire.git
+  - name: modello
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/modello.git
+  - name: tests/ant
+    how: fmf
+    url: https://src.fedoraproject.org/tests/ant.git
+  - name: tests/maven
+    how: fmf
+    url: https://src.fedoraproject.org/tests/maven.git
+execute:
+  how: tmt

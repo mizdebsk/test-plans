@@ -1,0 +1,51 @@
+environment:
+  OPENJDK_VERSION: 17
+  OPENJDK_HEADLESS: "false"
+prepare:
+  - name: mbici-install
+    how: install
+    package:
+     - maven-openjdk17
+discover:
+  - name: ant
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/ant.git
+    filter: tag:jdk17
+  - name: maven
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/maven.git
+    filter: tag:jdk17
+  - name: byaccj
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/byaccj.git
+    filter: tag:jdk17
+  - name: javacc
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/javacc.git
+    filter: tag:jdk17
+  - name: jctools
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/jctools.git
+    filter: tag:jdk17
+  - name: jflex
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/jflex.git
+    filter: tag:jdk17
+  - name: maven-surefire
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/maven-surefire.git
+    filter: tag:jdk17
+  - name: modello
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/modello.git
+    filter: tag:jdk17
+  - name: tests/ant
+    how: fmf
+    url: https://src.fedoraproject.org/tests/ant.git
+    filter: tag:jdk17
+  - name: tests/maven
+    how: fmf
+    url: https://src.fedoraproject.org/tests/maven.git
+    filter: tag:jdk17
+execute:
+  how: tmt

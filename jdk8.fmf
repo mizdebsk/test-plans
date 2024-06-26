@@ -1,0 +1,51 @@
+environment:
+  OPENJDK_VERSION: 1.8.0
+  OPENJDK_HEADLESS: "false"
+prepare:
+  - name: mbici-install
+    how: install
+    package:
+     - maven-openjdk8
+discover:
+  - name: ant
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/ant.git
+    filter: tag:jdk8
+  - name: maven
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/maven.git
+    filter: tag:jdk8
+  - name: byaccj
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/byaccj.git
+    filter: tag:jdk8
+  - name: javacc
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/javacc.git
+    filter: tag:jdk8
+  - name: jctools
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/jctools.git
+    filter: tag:jdk8
+  - name: jflex
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/jflex.git
+    filter: tag:jdk8
+  - name: maven-surefire
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/maven-surefire.git
+    filter: tag:jdk8
+  - name: modello
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/modello.git
+    filter: tag:jdk8
+  - name: tests/ant
+    how: fmf
+    url: https://src.fedoraproject.org/tests/ant.git
+    filter: tag:jdk8
+  - name: tests/maven
+    how: fmf
+    url: https://src.fedoraproject.org/tests/maven.git
+    filter: tag:jdk8
+execute:
+  how: tmt

@@ -6,6 +6,8 @@ prepare:
     how: install
     package:
      - maven-openjdk17
+tag:
+  - matrix
 discover:
   - name: ant
     how: fmf

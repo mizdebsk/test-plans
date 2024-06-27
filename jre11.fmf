@@ -9,6 +9,8 @@ prepare:
   - name: mbici-erase
     how: shell
     script: dnf -y remove java-*-openjdk
+tag:
+  - matrix
 discover:
   - name: ant
     how: fmf

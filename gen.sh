@@ -49,6 +49,8 @@ while read tag jdk_version_short jdk_version_full jdk_headless; do
 	    echo "    how: shell"
 	    echo "    script: dnf -y remove java-*-openjdk"
 	fi
+	echo "tag:"
+	echo "  - matrix"
     fi
 
     echo "discover:"

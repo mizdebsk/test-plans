@@ -23,6 +23,27 @@ discover:
   - name: modello
     how: fmf
     url: https://src.fedoraproject.org/rpms/modello.git
+  - name: jakarta-activation
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/jakarta-activation.git
+  - name: jaxb-api
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/jaxb-api.git
+  - name: jaxb-dtd-parser
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/jaxb-dtd-parser.git
+  - name: jaxb-fi
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/jaxb-fi.git
+  - name: jaxb-istack-commons
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/jaxb-istack-commons.git
+  - name: jaxb-stax-ex
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/jaxb-stax-ex.git
+  - name: jaxb
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/jaxb.git
   - name: tests/ant
     how: fmf
     url: https://src.fedoraproject.org/tests/ant.git

@@ -7,7 +7,7 @@ external="ant maven"
 
 # Components with that have tests stored directly in their "rpms"
 # dist-git repository, eg. https://src.fedoraproject.org/rpms/maven
-internal="ant maven byaccj javacc jctools jflex maven-surefire modello"
+internal="ant maven byaccj javacc jctools jflex maven-surefire modello jakarta-activation jaxb-api jaxb-dtd-parser jaxb-fi jaxb-istack-commons jaxb-stax-ex jaxb"
 
 external_url_template="https://src.fedoraproject.org/tests/@{id}.git"
 #external_url_template="/home/kojan/git/@{id}-tests"

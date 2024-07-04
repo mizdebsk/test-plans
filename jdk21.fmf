@@ -79,7 +79,7 @@ discover:
     filter: tag:jdk21
   - name: tests/maven
     how: fmf
-    url: https://src.fedoraproject.org/tests/maven.git
+    url: https://src.fedoraproject.org/forks/mizdebsk/tests/maven.git
     filter: tag:jdk21
 execute:
   how: tmt

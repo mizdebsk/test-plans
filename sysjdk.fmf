@@ -52,6 +52,6 @@ discover:
     url: https://src.fedoraproject.org/tests/ant.git
   - name: tests/maven
     how: fmf
-    url: https://src.fedoraproject.org/tests/maven.git
+    url: https://src.fedoraproject.org/forks/mizdebsk/tests/maven.git
 execute:
   how: tmt

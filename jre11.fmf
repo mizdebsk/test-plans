@@ -82,7 +82,7 @@ discover:
     filter: tag:jre11
   - name: tests/maven
     how: fmf
-    url: https://src.fedoraproject.org/tests/maven.git
+    url: https://src.fedoraproject.org/forks/mizdebsk/tests/maven.git
     filter: tag:jre11
 execute:
   how: tmt

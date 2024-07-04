@@ -69,6 +69,10 @@ discover:
     how: fmf
     url: https://src.fedoraproject.org/rpms/jaxb.git
     filter: tag:jdk17
+  - name: bcel
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/bcel.git
+    filter: tag:jdk17
   - name: tests/ant
     how: fmf
     url: https://src.fedoraproject.org/tests/ant.git

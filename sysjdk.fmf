@@ -1,10 +1,4 @@
 discover:
-  - name: ant
-    how: fmf
-    url: https://src.fedoraproject.org/rpms/ant.git
-  - name: maven
-    how: fmf
-    url: https://src.fedoraproject.org/rpms/maven.git
   - name: byaccj
     how: fmf
     url: https://src.fedoraproject.org/rpms/byaccj.git

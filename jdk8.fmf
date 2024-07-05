@@ -9,14 +9,6 @@ prepare:
 tag:
   - matrix
 discover:
-  - name: ant
-    how: fmf
-    url: https://src.fedoraproject.org/rpms/ant.git
-    filter: tag:jdk8
-  - name: maven
-    how: fmf
-    url: https://src.fedoraproject.org/rpms/maven.git
-    filter: tag:jdk8
   - name: byaccj
     how: fmf
     url: https://src.fedoraproject.org/rpms/byaccj.git

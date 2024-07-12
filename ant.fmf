@@ -1,0 +1,6 @@
+discover:
+  - name: tests/ant
+    how: fmf
+    url: https://src.fedoraproject.org/tests/ant.git
+execute:
+  how: tmt

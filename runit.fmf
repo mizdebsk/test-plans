@@ -1,0 +1,10 @@
+summary: Run runit tests
+context:
+  runit: true
+discover:
+  how: fmf
+  url: https://src.fedoraproject.org/tests/javapackages
+  ref: main
+  filter: tag:runit
+execute:
+  how: tmt

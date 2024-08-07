@@ -3,7 +3,7 @@ set -eu
 
 # Components with tests in a dedicated dist-git repository in "tests"
 # namespace, eg. https://src.fedoraproject.org/tests/maven
-external="ant maven"
+external="ant maven javapackages-tools"
 
 # Components with that have tests stored directly in their "rpms"
 # dist-git repository, eg. https://src.fedoraproject.org/rpms/maven

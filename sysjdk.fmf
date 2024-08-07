@@ -47,5 +47,8 @@ discover:
   - name: tests/maven
     how: fmf
     url: https://src.fedoraproject.org/tests/maven.git
+  - name: tests/javapackages-tools
+    how: fmf
+    url: https://src.fedoraproject.org/tests/javapackages-tools.git
 execute:
   how: tmt

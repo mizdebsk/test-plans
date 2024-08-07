@@ -73,5 +73,9 @@ discover:
     how: fmf
     url: https://src.fedoraproject.org/tests/maven.git
     filter: tag:jdk17
+  - name: tests/javapackages-tools
+    how: fmf
+    url: https://src.fedoraproject.org/tests/javapackages-tools.git
+    filter: tag:jdk17
 execute:
   how: tmt

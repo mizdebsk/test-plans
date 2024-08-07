@@ -76,5 +76,9 @@ discover:
     how: fmf
     url: https://src.fedoraproject.org/tests/maven.git
     filter: tag:jre21
+  - name: tests/javapackages-tools
+    how: fmf
+    url: https://src.fedoraproject.org/tests/javapackages-tools.git
+    filter: tag:jre21
 execute:
   how: tmt

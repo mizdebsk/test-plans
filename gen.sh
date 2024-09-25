@@ -21,12 +21,6 @@ internal_url_template="https://src.fedoraproject.org/rpms/@{cmp}.git"
 # |    |   |      jdk headless
 # |    |   |      |
 matrix="sysjdk
-jdk8   8   1.8.0  false
-jre8   8   1.8.0  true
-jdk11  11  11     false
-jre11  11  11     true
-jdk17  17  17     false
-jre17  17  17     true
 jdk21  21  21     false
 jre21  21  21     true"
 

@@ -37,6 +37,7 @@ while read tag jdk_version_short jdk_version_full jdk_headless; do
 	echo "  - name: mbici-install"
 	echo "    how: install"
 	echo "    package:"
+	echo "     - ant-openjdk${jdk_version_short}"
 	echo "     - maven-openjdk${jdk_version_short}"
 	if ${jdk_headless}; then
 	    echo "  - name: mbici-erase"

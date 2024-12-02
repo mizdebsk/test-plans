@@ -5,6 +5,7 @@ prepare:
   - name: mbici-install
     how: install
     package:
+     - ant-openjdk21
      - maven-openjdk21
   - name: mbici-erase
     how: shell

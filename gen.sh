@@ -66,15 +66,17 @@ while read tag jdk_version_short jdk_version_full jdk_headless; do
 
     echo "discover:"
 
-    for cmp in ${internal}; do
-        url=$(sed "s/@{cmp}/${cmp}/g" <<<"${internal_url_template}")
-        echo "  - name: ${cmp}"
-        echo "    how: fmf"
-        echo "    url: ${url}"
-        if [[ "${tag}" != "sysjdk" ]]; then
-            echo "    filter: tag:${tag}"
-        fi
-    done
+    if [[ "${tag}" = "sysjdk" ]]; then
+        for cmp in ${internal}; do
+            url=$(sed "s/@{cmp}/${cmp}/g" <<<"${internal_url_template}")
+            echo "  - name: ${cmp}"
+            echo "    how: fmf"
+            echo "    url: ${url}"
+            if [[ "${tag}" != "sysjdk" ]]; then
+                echo "    filter: tag:${tag}"
+            fi
+        done
+    fi
 
     for id in ${external}; do
         url=$(sed "s/@{id}/${id}/g" <<<"${external_url_template}")

@@ -1,0 +1,87 @@
+prepare:
+  - name: mbici-install
+    how: install
+    package:
+     - ant-unbound
+     - maven-unbound
+  - name: mbici-jlink
+    how: shell
+    script: |
+      test -d /opt/java && test -x /usr/local/bin/java && exit 0
+      dnf -y install java-21-openjdk-jmods
+      jlink --add-modules java.base,java.logging,java.xml,java.naming --output /opt/java
+      ln -s /opt/java/bin/java /usr/local/bin/java
+      dnf -y remove java-21-openjdk-jmods
+tag:
+  - matrix
+discover:
+  - name: byaccj
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/byaccj.git
+    filter: tag:unbound
+  - name: javacc
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/javacc.git
+    filter: tag:unbound
+  - name: jctools
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/jctools.git
+    filter: tag:unbound
+  - name: jflex
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/jflex.git
+    filter: tag:unbound
+  - name: maven-surefire
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/maven-surefire.git
+    filter: tag:unbound
+  - name: modello
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/modello.git
+    filter: tag:unbound
+  - name: jakarta-activation
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/jakarta-activation.git
+    filter: tag:unbound
+  - name: jaxb-api
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/jaxb-api.git
+    filter: tag:unbound
+  - name: jaxb-dtd-parser
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/jaxb-dtd-parser.git
+    filter: tag:unbound
+  - name: jaxb-fi
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/jaxb-fi.git
+    filter: tag:unbound
+  - name: jaxb-istack-commons
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/jaxb-istack-commons.git
+    filter: tag:unbound
+  - name: jaxb-stax-ex
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/jaxb-stax-ex.git
+    filter: tag:unbound
+  - name: jaxb
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/jaxb.git
+    filter: tag:unbound
+  - name: bcel
+    how: fmf
+    url: https://src.fedoraproject.org/rpms/bcel.git
+    filter: tag:unbound
+  - name: tests/ant
+    how: fmf
+    url: https://src.fedoraproject.org/tests/ant.git
+    filter: tag:unbound
+  - name: tests/maven
+    how: fmf
+    url: https://src.fedoraproject.org/tests/maven.git
+    filter: tag:unbound
+  - name: tests/javapackages-tools
+    how: fmf
+    url: https://src.fedoraproject.org/tests/javapackages-tools.git
+    filter: tag:unbound
+execute:
+  how: tmt

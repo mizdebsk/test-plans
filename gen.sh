@@ -21,6 +21,7 @@ internal_url_template="https://src.fedoraproject.org/rpms/@{cmp}.git"
 # |    |   |      jdk headless
 # |    |   |      |
 matrix="sysjdk
+unbound
 jdk21  21  21     false
 jre21  21  21     true"
 
@@ -30,44 +31,59 @@ while read tag jdk_version_short jdk_version_full jdk_headless; do
     exec >${tag}.fmf
 
     if [[ "${tag}" != "sysjdk" ]]; then
-	echo "environment:"
-	echo "  OPENJDK_VERSION: ${jdk_version_full}"
-	echo "  OPENJDK_HEADLESS: \"${jdk_headless}\""
-	echo "prepare:"
-	echo "  - name: mbici-install"
-	echo "    how: install"
-	echo "    package:"
-	echo "     - ant-openjdk${jdk_version_short}"
-	echo "     - maven-openjdk${jdk_version_short}"
-	if ${jdk_headless}; then
-	    echo "  - name: mbici-erase"
-	    echo "    how: shell"
-	    echo "    script: dnf -y remove java-*-openjdk"
-	fi
-	echo "tag:"
-	echo "  - matrix"
+	suffix="${tag}"
+        if [[ "${tag}" != "unbound" ]]; then
+	    suffix="openjdk${jdk_version_short}"
+            echo "environment:"
+            echo "  OPENJDK_VERSION: ${jdk_version_full}"
+            echo "  OPENJDK_HEADLESS: \"${jdk_headless}\""
+        fi
+        echo "prepare:"
+        echo "  - name: mbici-install"
+        echo "    how: install"
+        echo "    package:"
+        echo "     - ant-${suffix}"
+        echo "     - maven-${suffix}"
+        if [[ "${tag}" = "unbound" ]]; then
+                echo "  - name: mbici-jlink"
+                echo "    how: shell"
+                echo "    script: |"
+                echo "      test -d /opt/java && test -x /usr/local/bin/java && exit 0"
+                echo "      dnf -y install java-21-openjdk-jmods"
+                echo "      jlink --add-modules java.base,java.logging,java.xml,java.naming --output /opt/java"
+                echo "      ln -s /opt/java/bin/java /usr/local/bin/java"
+                echo "      dnf -y remove java-21-openjdk-jmods"
+        else
+            if ${jdk_headless}; then
+                echo "  - name: mbici-erase"
+                echo "    how: shell"
+                echo "    script: dnf -y remove java-*-openjdk"
+            fi
+        fi
+        echo "tag:"
+        echo "  - matrix"
     fi
 
     echo "discover:"
 
     for cmp in ${internal}; do
-	url=$(sed "s/@{cmp}/${cmp}/g" <<<"${internal_url_template}")
-	echo "  - name: ${cmp}"
-	echo "    how: fmf"
-	echo "    url: ${url}"
-	if [[ "${tag}" != "sysjdk" ]]; then
-	    echo "    filter: tag:${tag}"
-	fi
+        url=$(sed "s/@{cmp}/${cmp}/g" <<<"${internal_url_template}")
+        echo "  - name: ${cmp}"
+        echo "    how: fmf"
+        echo "    url: ${url}"
+        if [[ "${tag}" != "sysjdk" ]]; then
+            echo "    filter: tag:${tag}"
+        fi
     done
 
     for id in ${external}; do
-	url=$(sed "s/@{id}/${id}/g" <<<"${external_url_template}")
-	echo "  - name: tests/${id}"
-	echo "    how: fmf"
-	echo "    url: ${url}"
-	if [[ "${tag}" != "sysjdk" ]]; then
-	    echo "    filter: tag:${tag}"
-	fi
+        url=$(sed "s/@{id}/${id}/g" <<<"${external_url_template}")
+        echo "  - name: tests/${id}"
+        echo "    how: fmf"
+        echo "    url: ${url}"
+        if [[ "${tag}" != "sysjdk" ]]; then
+            echo "    filter: tag:${tag}"
+        fi
     done
 
     echo "execute:"

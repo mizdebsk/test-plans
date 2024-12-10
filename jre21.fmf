@@ -1,4 +1,5 @@
 environment:
+  MAVEN_IT_GIT_REF: maven-3.9.x
   OPENJDK_VERSION: 21
   OPENJDK_HEADLESS: "true"
 prepare:

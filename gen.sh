@@ -32,9 +32,10 @@ while read tag jdk_version_short jdk_version_full jdk_headless; do
 
     if [[ "${tag}" != "sysjdk" ]]; then
 	suffix="${tag}"
+        echo "environment:"
+        echo "  MAVEN_IT_GIT_REF: maven-3.9.x"
         if [[ "${tag}" != "unbound" ]]; then
 	    suffix="openjdk${jdk_version_short}"
-            echo "environment:"
             echo "  OPENJDK_VERSION: ${jdk_version_full}"
             echo "  OPENJDK_HEADLESS: \"${jdk_headless}\""
         fi

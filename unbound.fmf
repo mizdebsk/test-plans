@@ -1,3 +1,5 @@
+environment:
+  MAVEN_IT_GIT_REF: maven-3.9.x
 prepare:
   - name: mbici-install
     how: install

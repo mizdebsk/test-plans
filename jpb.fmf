@@ -1,6 +1,0 @@
-discover:
-  - how: fmf
-    url: https://src.fedoraproject.org/rpms/javapackages-bootstrap.git
-    #url: /home/kojan/tmp/fp/javapackages-bootstrap
-execute:
-  how: tmt

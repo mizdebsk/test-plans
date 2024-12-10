@@ -20,7 +20,7 @@ internal_url_template="https://src.fedoraproject.org/rpms/@{cmp}.git"
 # |    |   jdk version long
 # |    |   |      jdk headless
 # |    |   |      |
-matrix="sysjdk
+matrix="sysjdk 21 21 false
 unbound
 jdk21  21  21     false
 jre21  21  21     true"
@@ -30,15 +30,17 @@ while read tag jdk_version_short jdk_version_full jdk_headless; do
 
     exec >${tag}.fmf
 
+    suffix="${tag}"
+
+    echo "environment:"
+    echo "  MAVEN_IT_GIT_REF: maven-3.9.x"
+    if [[ "${tag}" != "unbound" ]]; then
+        suffix="openjdk${jdk_version_short}"
+        echo "  OPENJDK_VERSION: ${jdk_version_full}"
+        echo "  OPENJDK_HEADLESS: \"${jdk_headless}\""
+    fi
+
     if [[ "${tag}" != "sysjdk" ]]; then
-	suffix="${tag}"
-        echo "environment:"
-        echo "  MAVEN_IT_GIT_REF: maven-3.9.x"
-        if [[ "${tag}" != "unbound" ]]; then
-	    suffix="openjdk${jdk_version_short}"
-            echo "  OPENJDK_VERSION: ${jdk_version_full}"
-            echo "  OPENJDK_HEADLESS: \"${jdk_headless}\""
-        fi
         echo "prepare:"
         echo "  - name: mbici-install"
         echo "    how: install"

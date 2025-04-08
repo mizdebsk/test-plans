@@ -47,12 +47,12 @@ discover:
     url: https://src.fedoraproject.org/rpms/bcel.git
   - name: tests/ant
     how: fmf
-    url: https://src.fedoraproject.org/tests/ant.git
+    url: https://gitlab.com/redhat/centos-stream/tests/ant.git
   - name: tests/maven
     how: fmf
-    url: https://src.fedoraproject.org/tests/maven.git
+    url: https://gitlab.com/redhat/centos-stream/tests/maven.git
   - name: tests/javapackages-tools
     how: fmf
-    url: https://src.fedoraproject.org/tests/javapackages-tools.git
+    url: https://gitlab.com/redhat/centos-stream/tests/javapackages-tools.git
 execute:
   how: tmt

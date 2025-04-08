@@ -9,7 +9,7 @@ external="ant maven javapackages-tools"
 # dist-git repository, eg. https://src.fedoraproject.org/rpms/maven
 internal="byaccj javacc jctools jflex maven-surefire modello jakarta-activation jaxb-api jaxb-dtd-parser jaxb-fi jaxb-istack-commons jaxb-stax-ex jaxb bcel"
 
-external_url_template="https://src.fedoraproject.org/tests/@{id}.git"
+external_url_template="https://gitlab.com/redhat/centos-stream/tests/@{id}.git"
 #external_url_template="/home/kojan/git/@{id}-tests"
 internal_url_template="https://src.fedoraproject.org/rpms/@{cmp}.git"
 #internal_url_template="/home/kojan/tmp/fp/@{cmp}"

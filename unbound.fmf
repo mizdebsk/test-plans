@@ -19,15 +19,15 @@ tag:
 discover:
   - name: tests/ant
     how: fmf
-    url: https://src.fedoraproject.org/tests/ant.git
+    url: https://gitlab.com/redhat/centos-stream/tests/ant.git
     filter: tag:unbound
   - name: tests/maven
     how: fmf
-    url: https://src.fedoraproject.org/tests/maven.git
+    url: https://gitlab.com/redhat/centos-stream/tests/maven.git
     filter: tag:unbound
   - name: tests/javapackages-tools
     how: fmf
-    url: https://src.fedoraproject.org/tests/javapackages-tools.git
+    url: https://gitlab.com/redhat/centos-stream/tests/javapackages-tools.git
     filter: tag:unbound
 execute:
   how: tmt

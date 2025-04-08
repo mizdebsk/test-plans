@@ -1,0 +1,27 @@
+environment:
+  MAVEN_IT_GIT_REF: maven-3.9.x
+  OPENJDK_VERSION: 25
+  OPENJDK_HEADLESS: "false"
+prepare:
+  - name: mbici-install
+    how: install
+    package:
+     - ant-openjdk25
+     - maven-openjdk25
+tag:
+  - matrix
+discover:
+  - name: tests/ant
+    how: fmf
+    url: https://gitlab.com/redhat/centos-stream/tests/ant.git
+    filter: tag:jdk25
+  - name: tests/maven
+    how: fmf
+    url: https://gitlab.com/redhat/centos-stream/tests/maven.git
+    filter: tag:jdk25
+  - name: tests/javapackages-tools
+    how: fmf
+    url: https://gitlab.com/redhat/centos-stream/tests/javapackages-tools.git
+    filter: tag:jdk25
+execute:
+  how: tmt

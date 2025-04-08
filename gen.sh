@@ -23,7 +23,9 @@ internal_url_template="https://src.fedoraproject.org/rpms/@{cmp}.git"
 matrix="sysjdk 21 21 false
 unbound
 jdk21  21  21     false
-jre21  21  21     true"
+jre21  21  21     true
+jdk25  25  25     false
+jre25  25  25     true"
 
 
 while read tag jdk_version_short jdk_version_full jdk_headless; do
